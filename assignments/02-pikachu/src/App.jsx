@@ -1,7 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-
+import React, { useEffect, useRef, useState } from "react";
 const Character = ({ pos: { dir, key, posX, posY } }) => {
-  console.log(key, posX, posY);
   return (
     <>
       <img
@@ -36,7 +34,7 @@ const Tile = () => {
 };
 
 const Ground = () => {
-  console.log("render!");
+  console.log("render");
   const render = () => {
     const tiles = [];
     for (let i = 0; i < 100; i++) {
@@ -57,7 +55,10 @@ const Ground = () => {
   );
 };
 
+const MemoizedGround = React.memo(Ground);
+
 function App() {
+  console.log("hello!");
   const [pos, setPos] = useState({ dir: "right", key: null, posX: 0, posY: 0 });
   const ref = useRef(null);
   const checkCrossLine = (prev, next) => {
@@ -109,13 +110,13 @@ function App() {
         setPos((prev) => {
           const next = { ...prev };
           next.key = " ";
-          next.posY -= 30;
+          next.posY -= 100;
           return next;
         });
         setTimeout(() => {
           setPos((prev) => {
             const next = { ...prev };
-            next.posY += 30;
+            next.posY += 100;
             return next;
           });
         }, 200);
@@ -139,7 +140,7 @@ function App() {
       }}
     >
       <Character pos={pos} />
-      <Ground />
+      <MemoizedGround />
     </div>
   );
 }
