@@ -6,7 +6,7 @@ export const Form = () => {
   const [{ title, content, time }, onChange, reset] = useInputs({
     title: "",
     content: "",
-    time: 0,
+    time: "",
   });
   console.log(title, content, time);
   const toast = useToast();
@@ -19,6 +19,9 @@ export const Form = () => {
       content: content.value,
       time: time.value,
     };
+    if (newToast.time === "") {
+      newToast.time = 2000;
+    }
     toast.add(newToast);
   };
 

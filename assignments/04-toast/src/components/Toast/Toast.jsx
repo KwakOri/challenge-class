@@ -1,30 +1,34 @@
 import { useEffect, useState } from "react";
 import { useToast } from "../../contexts/Toast.context";
 
-export const Toast = ({ id, title, content, time = 2000 }) => {
+const DURATION = 1200;
+
+export const Toast = ({ id, title, content, time }) => {
+  console.log("토스트 작동!");
   const toast = useToast();
   const [show, setShow] = useState(false);
   let timer;
 
-  const deleteToast = async (time = 0, extra = 0) => {
-    return new Promise((resolve) => {
+  const deleteToast = async (time) =>
+    new Promise((resolve) => {
       timer = setTimeout(() => {
         setShow(false);
         resolve();
-      }, +time + extra);
-    }).then((_) => {
+      }, +time);
+    }).then(() => {
       setTimeout(() => {
         toast.delete(id);
-      }, 500);
+      }, DURATION);
     });
-  };
+
   useEffect(() => {
     setShow(true);
-    deleteToast(+time, 500);
+    deleteToast(+time);
   }, []);
+
   return (
     <div
-      className={` bg-white mt-4 transition-all duration-500 w-[320px] h-[90px] pl-6 pr-10 flex flex-col justify-center rounded-md border border-solid border-gray-200 shadow-lg relative ${
+      className={` bg-white mt-4 transition-all duration-[${DURATION.toString()}ms] w-[320px] h-[90px] pl-6 pr-10 flex flex-col justify-center rounded-md border border-solid border-gray-200 shadow-lg relative ${
         show ? "right-0" : "-right-[400px]"
       }`}
     >
