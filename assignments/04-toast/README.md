@@ -1,8 +1,8 @@
-# React + Vite
+# 토스트 만들기
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+엄청 어려울 거 같아서 많이 걱정했는데, 재미있게 만들었습니다.
+이런 재미있는 과제 만들어 주시는 튜터님 사랑해요~
 
-Currently, two official plugins are available:
+- 어둠의 유사모는 실존한다!!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+토스트가 나왔다가 사라지는 모션을 어떻게 자연스럽고 부드럽게 만들지가 신경이 많이 쓰였던 부분같네요!!

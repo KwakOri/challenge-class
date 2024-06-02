@@ -8,7 +8,7 @@ export const Form = () => {
     content: "",
     time: "",
   });
-  console.log(title, content, time);
+
   const toast = useToast();
 
   const onSubmit = (e) => {
@@ -23,6 +23,7 @@ export const Form = () => {
       newToast.time = 2000;
     }
     toast.add(newToast);
+    // reset();
   };
 
   return (

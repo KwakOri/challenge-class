@@ -13,7 +13,6 @@ export const useToast = () => useContext(ToastContext);
 
 export const ToastProvider = ({ children }) => {
   const [toasts, setToasts] = useState([]);
-  console.log("curr toasts:", toasts);
   const value = {
     add: ({ title, content, time }) => {
       setToasts((prev) => [...prev, { title, content, time, id: uuidv4() }]);
